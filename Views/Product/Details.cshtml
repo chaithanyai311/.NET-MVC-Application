@@ -1,0 +1,121 @@
+﻿@model WebApplication1.Models.Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+<style>
+   
+    h1 {
+        margin-top: 5%;
+        font-family: sans-serif;
+        font-size: 60px;
+        color: white;
+        font-weight: bold;
+        text-transform: uppercase;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    h4 {
+        color: #254820;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .col {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .data{
+        width: 200px
+    }
+
+    .label{
+       width: 200px
+    }
+
+   .table{
+       display:flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .link {
+        background-color: #254820;
+        padding: 1% 2%;
+        margin-top: 1%;
+        color:white;
+        margin-left:2%;
+        text-decoration:none;
+    }
+
+    .btn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+       
+    }
+
+
+</style>
+
+<h1>Details</h1>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="row">
+        @* <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProductId)
+        </dd> *@
+        <div>
+        <dt class="col">
+            @if (!string.IsNullOrEmpty(Model.ImageUrl))
+            {
+                <img src="@Model.ImageUrl" alt="Product Image" class="img-thumbnail" width="400px" height="300px"/>
+            }
+            else
+            {
+                <p>No image available</p>
+            }
+        </dt>
+        </div>
+        
+        <div class="table">
+        <dt class = "label">
+            @Html.DisplayNameFor(model => model.ProductName)
+        </dt>
+        <dd class = "data">
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+        </div>
+
+        <div class="table">
+        <dt class = "label">
+            @Html.DisplayNameFor(model => model.ProductDescription)
+        </dt>
+        <dd class = "data">
+            @Html.DisplayFor(model => model.ProductDescription)
+        </dd>
+        </div>
+            <div class="table">
+        <dt class = "label">
+            @Html.DisplayNameFor(model => model.ProductPrice)
+        </dt>
+        <dd class = "data">
+            @Html.DisplayFor(model => model.ProductPrice)
+        </dd>
+        </div>
+    </dl>
+</div>
+<div class="btn">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductId }, new { @class = "link" })
+    <a class="link" asp-action="Index">Back to List</a>
+</div>

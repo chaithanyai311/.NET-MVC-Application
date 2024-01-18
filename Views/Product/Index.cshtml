@@ -1,0 +1,96 @@
+﻿@model IEnumerable<WebApplication1.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+
+    h1 {
+        margin-top: 5%;
+        font-family: sans-serif;
+        font-size: 60px;
+        color: white;
+        font-weight: bold;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #create{
+        background-color: #254820;
+        color: white;
+        font-size: 20px;
+        padding: 0.5% 2%;
+        font-weight: bold;
+        text-decoration: none;
+        margin-bottom:3%;
+    }
+
+    p{
+        text-align: right;
+    }
+
+    
+    thead{
+        background-color: #5d8046;
+        color: white;
+    }
+    .link{
+        color: #254820;
+        margin: 2% 5%
+    }
+
+    #action{
+        text-align: right;
+    }
+
+</style>
+
+<h1>Index</h1>
+
+<p>
+    <a id="create" asp-action="Create">Create</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+           @*<th>
+                @Html.DisplayNameFor(model => model.ProductId)
+            </th> *@
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductPrice)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            @* <td>
+                @Html.DisplayFor(modelItem => item.ProductId)
+            </td> *@
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductPrice)
+            </td>
+            <td id="action">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ProductId }, new { @class = "link" }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ProductId }, new { @class = "link" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ProductId }, new { @class = "link" })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

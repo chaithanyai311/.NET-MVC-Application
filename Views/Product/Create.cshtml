@@ -1,0 +1,116 @@
+﻿@model WebApplication1.Models.Product
+
+@{
+    ViewData["Title"] = "Create";
+}
+<style>
+
+    h1 {
+        margin-top: 5%;
+        font-family: sans-serif;
+        font-size: 60px;
+        color: white;
+        font-weight: bold;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    h4{
+        color: #254820;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .create {
+        background-color: #254820;
+        color: white;
+        padding: 1% 5%;
+        font-weight: bold;
+        border: none;
+        margin-top:5%;
+    }
+
+    p {
+        text-align: right;
+    }
+
+    thead {
+        background-color: #254820;
+    }
+
+    .link{
+        background-color: #254820;
+        padding: 2% 5%;
+        margin-top: 5%;
+        margin-left:2%;
+        color: white;
+        text-decoration: none;
+    }
+
+    .form-group {
+        display:flex;
+        margin-top:3%;
+    }
+
+    .control-label{
+        width: 1000px;
+        font: 30px;
+        font-weight: bold;
+    }  
+
+    .form-control{
+        width: 2000px
+    }
+
+
+
+</style>
+
+<h1>Create</h1>
+<h4>Product</h4>
+<hr />
+<h4>@ViewBag.Msg</h4>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group">
+                <label asp-for="ProductId" class="control-label"></label>
+                <input asp-for="ProductId" class="form-control" />
+                <span asp-validation-for="ProductId" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="ProductName" class="control-label"></label>
+                <input asp-for="ProductName" class="form-control"  />
+                <span asp-validation-for="ProductName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductDescription" class="control-label"></label>
+                <input asp-for="ProductDescription" class="form-control" />
+                <span asp-validation-for="ProductDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductPrice" class="control-label"></label>
+                <input asp-for="ProductPrice" class="form-control" />
+                <span asp-validation-for="ProductPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageUrl" class="control-label"></label>
+                <input asp-for="ImageUrl" class="form-control" />
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="create" />
+                <a class="link" asp-action="Index">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

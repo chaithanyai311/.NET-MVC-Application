@@ -1,0 +1,52 @@
+﻿@model IEnumerable<WebApplication1.Models.Product>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    h1{
+        margin-top: 18%;
+        font-family: sans-serif;
+        font-size: 60px;
+        color: #254820;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    p{
+        margin-top: 3%;
+        color: #5d8046;
+        margin-bottom:3%;
+    }
+
+    button{
+        padding:1% 2%;
+        background-color: #d2ac6e;
+        color:white;
+        font-weight: bold;
+        border:none;
+        border-radius:45%;
+    }
+
+    button:hover {
+        background-color: #c3c0b3;
+    }
+</style>
+
+<div class="text-center">
+    <h1>WELCOME</h1>
+    <p class="description">
+        Streamline your product management process with our intuitive tools and features.
+        Effortlessly organize, track, and analyze your products throughout their lifecycle.
+        Enhance collaboration, boost productivity, and make informed decisions to drive your business forward.
+    </p>
+
+    <button onclick="redirectToProduct()">Go to Product</button>
+
+    <script>
+        function redirectToProduct() {
+            window.location.href = '@Url.Action("Index", "Product")';
+        }
+    </script>
+</div>
+  
